@@ -1,3 +1,29 @@
 .Board {
   margin-top: 12px;
 }
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.task-form input,
+.task-form select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.task-form button {
+  background-color: skyblue;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.task-form button:hover {
+  opacity: 0.9;
+}
