@@ -1,7 +1,7 @@
 .Card {
   background-color: lightgrey;
   font-size: 12px;
-  padding: 20px;
+  padding: 17px;
   margin-bottom: 10px;
 }
 
@@ -22,10 +22,11 @@
 
 .Card-title {
   font-weight: bold;
+  font-size: 18px;
 }
 .Card-description {
-  font-size: 12px;
-  margin-top: 8px;
+  font-size: 14px;
+  margin-top: 7px;
   opacity: 0.8;
 }
 .Card {

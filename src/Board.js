@@ -11,7 +11,7 @@ export default class Board extends React.Component {
     this.state = {
       clients: {
         backlog: clients.filter(client => !client.status || client.status === 'backlog'),
-        inProgress: clients.filter(client => client.status && client.status === 'in-progress'),
+        'in-progress': clients.filter(client => client.status && client.status === 'in-progress'),
         complete: clients.filter(client => client.status && client.status === 'complete'),
       },
 
@@ -22,17 +22,38 @@ export default class Board extends React.Component {
     }
     this.swimlanes = {
       backlog: React.createRef(),
-      inProgress: React.createRef(),
+      'in-progress': React.createRef(),
       complete: React.createRef(),
     }
     this.handleInputChange = (event) => {
 
-    this.setState({
-     [event.target.name]: event.target.value
+      this.setState({
+        [event.target.name]: event.target.value
       });
     }
-  
+    this.addTask = () => {
+      const newTask = {
+       id: Date.now(),
+       name: this.state.taskName,
+       description: this.state.taskDescription,
+       status: this.state.taskStatus,
+      };
+      const updatedClients = {
+        ...this.state.clients
+      };
+      
+      console.log("taskStatus =", this.state.taskStatus);
+      console.log("updatedClients =", updatedClients);
+      updatedClients[this.state.taskStatus].push(newTask);
 
+      this.setState({
+       clients: updatedClients,
+       taskName: '',
+       taskDescription: '',
+       taskStatus: 'backlog',
+      });
+
+    };
   }
   getClients() {
     return [
@@ -103,7 +124,7 @@ export default class Board extends React.Component {
               {this.renderSwimlane('Backlog', this.state.clients.backlog, this.swimlanes.backlog)}
             </div>
             <div className="col-md-4">
-              {this.renderSwimlane('In Progress', this.state.clients.inProgress, this.swimlanes.inProgress)}
+              {this.renderSwimlane('in-progress', this.state.clients['in-progress'], this.swimlanes['in-progress'])}
             </div>
             <div className="col-md-4">
               {this.renderSwimlane('Complete', this.state.clients.complete, this.swimlanes.complete)}
