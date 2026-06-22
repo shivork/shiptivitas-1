@@ -55,6 +55,13 @@ export default class Board extends React.Component {
 
     };
   }
+    componentDidMount() {
+     Dragula([
+      this.swimlanes.backlog.current,
+      this.swimlanes["in-progress"].current,
+      this.swimlanes.complete.current
+    ]);
+  }
   getClients() {
     return [
       ['1','UI Design','Create dashboard layout','backlog'],
