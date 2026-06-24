@@ -105,6 +105,40 @@ export default class Board extends React.Component {
       console.log("movedCard:", movedCard);
       console.log(updatedClients[oldStatus]);
 
+
+      setTimeout(() => {
+        el.classList.remove(
+          "Card-grey",
+          "Card-blue",
+          "Card-green"
+        );
+
+        if (newStatus === "backlog") {
+          el.classList.add("Card-grey");
+        } else if (newStatus === "in-progress") {
+          el.classList.add("Card-blue");
+        } else {
+          el.classList.add("Card-green");
+        }
+      }, 50);
+
+
+      // el.classList.remove(
+      //   "Card-grey",
+      //   "Card-blue",
+      //   "Card-green"
+      // );
+
+      // if (newStatus === "backlog") {
+      //   el.classList.add("Card-grey");
+      // }
+      // else if (newStatus === "in-progress") {
+      //   el.classList.add("Card-blue");
+      // }
+      // else {
+      //   el.classList.add("Card-green");
+      // }
+
       updatedClients[oldStatus] =
         updatedClients[oldStatus].filter(
           client => String(client.id) !== cardId
@@ -112,10 +146,12 @@ export default class Board extends React.Component {
 
       const newMovedCard = { ...movedCard, status: newStatus };
       updatedClients[newStatus].push(newMovedCard);
+      this.state.clients = updatedClients;
 
       // this.setState({
       //   clients: updatedClients
       // });
+
     });
   }
 
