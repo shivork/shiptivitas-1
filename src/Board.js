@@ -123,21 +123,6 @@ export default class Board extends React.Component {
       }, 50);
 
 
-      // el.classList.remove(
-      //   "Card-grey",
-      //   "Card-blue",
-      //   "Card-green"
-      // );
-
-      // if (newStatus === "backlog") {
-      //   el.classList.add("Card-grey");
-      // }
-      // else if (newStatus === "in-progress") {
-      //   el.classList.add("Card-blue");
-      // }
-      // else {
-      //   el.classList.add("Card-green");
-      // }
 
       updatedClients[oldStatus] =
         updatedClients[oldStatus].filter(
@@ -177,6 +162,7 @@ export default class Board extends React.Component {
       ['18','Bins, Toy and Klocko','Integrated Assymetric Software', 'backlog'],
       ['19','Hodkiewicz-Hayes','Programmable Systematic Securedline', 'backlog'],
       ['20','Murphy, Lang and Ferry','Organized Explicit Access', 'backlog'],
+
     ].map(companyDetails => ({
       id: companyDetails[0],
       name: companyDetails[1],
@@ -227,13 +213,13 @@ export default class Board extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-4">
-              {this.renderSwimlane('backlog', this.state.clients.backlog, this.swimlanes.backlog)}
+              {this.renderSwimlane('Backlog', this.state.clients.backlog, this.swimlanes.backlog)}
             </div>
             <div className="col-md-4">
-              {this.renderSwimlane('in-progress', this.state.clients['in-progress'], this.swimlanes['in-progress'])}
+              {this.renderSwimlane('In-Progress', this.state.clients['in-progress'], this.swimlanes['in-progress'])}
             </div>
             <div className="col-md-4">
-              {this.renderSwimlane('complete', this.state.clients.complete, this.swimlanes.complete)}
+              {this.renderSwimlane('Complete', this.state.clients.complete, this.swimlanes.complete)}
             </div>
           </div>
         </div>
