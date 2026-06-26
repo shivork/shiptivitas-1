@@ -120,7 +120,7 @@ export default class Board extends React.Component {
         } else {
           el.classList.add("Card-green");
         }
-      }, 50);
+      }, 150);
 
 
 
