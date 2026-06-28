@@ -227,13 +227,13 @@ export default class Board extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-4">
-              {this.renderSwimlane('backlog', this.state.clients.backlog, this.swimlanes.backlog)}
+              {this.renderSwimlane('Backlog', this.state.clients.backlog, this.swimlanes.backlog)}
             </div>
             <div className="col-md-4">
-              {this.renderSwimlane('in-progress', this.state.clients['in-progress'], this.swimlanes['in-progress'])}
+              {this.renderSwimlane('In-Progress', this.state.clients['in-progress'], this.swimlanes['in-progress'])}
             </div>
             <div className="col-md-4">
-              {this.renderSwimlane('complete', this.state.clients.complete, this.swimlanes.complete)}
+              {this.renderSwimlane('Complete', this.state.clients.complete, this.swimlanes.complete)}
             </div>
           </div>
         </div>
